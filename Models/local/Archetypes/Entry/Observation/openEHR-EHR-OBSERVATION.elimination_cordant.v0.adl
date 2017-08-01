@@ -1,0 +1,143 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.elimination_cordant.v0
+
+concept
+	[at0000]	-- Elimination Cordant
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of elimination requirements as part of a client needs assessment.">
+			use = <"Use to record assistance requirement relating to elimination in the context of a client needs assessment.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["MD5-CAM-1.0.1"] = <"757BAD137EB0DD266CB4EEAD58AE46C1">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Elimination Cordant
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Continence status
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0007, 	-- Fully continent
+													at0008, 	-- Incontinent
+													at0009, 	-- Bladder incontinent only
+													at0010]	-- Bowel incontinent
+												}
+											}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Catheter?
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Suprapubic catheter?
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Monitor daily output
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..*} matches {	-- Details of required assistance with elimination
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Elimination Cordant">
+					description = <"Elimination assistance requirements.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Details of required assistance with elimination">
+					description = <"Narrative description of assistance with elimination if this is required.">
+				>
+				["at0006"] = <
+					text = <"Continence status">
+					description = <"Statement about the continence status of the client.">
+				>
+				["at0007"] = <
+					text = <"Fully continent">
+					description = <"The client is fully continent.">
+				>
+				["at0008"] = <
+					text = <"Incontinent">
+					description = <"The client is incontinent.">
+				>
+				["at0009"] = <
+					text = <"Bladder incontinent only">
+					description = <"The client is bladder incontinent only.">
+				>
+				["at0010"] = <
+					text = <"Bowel incontinent">
+					description = <"The client is bowel incontinent only.">
+				>
+				["at0011"] = <
+					text = <"Catheter?">
+					description = <"Statement whether a catheter is in place.">
+				>
+				["at0012"] = <
+					text = <"Suprapubic catheter?">
+					description = <"Statement whether a suprapubic catheter is in place?">
+				>
+				["at0013"] = <
+					text = <"Monitor daily output">
+					description = <"Statement whether daily output monitoring is required.">
+				>
+			>
+		>
+	>

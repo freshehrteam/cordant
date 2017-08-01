@@ -1,0 +1,219 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.dietary_cordant.v0
+
+concept
+	[at0000]	-- Dietary Cordant
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of dietary requirements as part of a client needs assessment.">
+			use = <"Use to record dietary requirements in the context of a client needs assessment.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["MD5-CAM-1.0.1"] = <"59E4B8B41DA03A7CA3A4D1CE8E5EA0C6">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Dietary Cordant
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Choking hazard
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Assistance required with feeding
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Details of required assistance with feeding
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Cultural diet
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Details of cultual diet
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Monitor daily intake
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Details of daily intake monitoring
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Gastrostomy
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Details of gastrostomy
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Pump
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Details of pump
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {	-- Bolus
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {	-- Details of bolus
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0017] occurrences matches {0..1} matches {	-- Nil by mouth
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {	-- Details of nil by mouth
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Dietary Cordant">
+					description = <"Dietary requirements as part of client needs assessment.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Choking hazard">
+					description = <"Statement whether there is a choking hazard for the client.">
+				>
+				["at0005"] = <
+					text = <"Assistance required with feeding">
+					description = <"Statement whether assistance with feeding is required.">
+				>
+				["at0006"] = <
+					text = <"Details of required assistance with feeding">
+					description = <"Narrative description of details of assistance with feeding if this is required.">
+				>
+				["at0007"] = <
+					text = <"Cultural diet">
+					description = <"Statement whether the client is on a cultural diet.">
+				>
+				["at0008"] = <
+					text = <"Details of cultual diet">
+					description = <"Narrative description of details for cultural diet.">
+				>
+				["at0009"] = <
+					text = <"Monitor daily intake">
+					description = <"Statement whether daily monitoring of intake is required.">
+				>
+				["at0010"] = <
+					text = <"Details of daily intake monitoring">
+					description = <"Narrative description of details of daily intake monitoring.">
+				>
+				["at0011"] = <
+					text = <"Gastrostomy">
+					description = <"Statement whether gastrostomy is present.">
+				>
+				["at0012"] = <
+					text = <"Details of gastrostomy">
+					description = <"Narrative description of details of gastrostomy (if present).">
+				>
+				["at0013"] = <
+					text = <"Pump">
+					description = <"Statement whether gastric pump is present.">
+				>
+				["at0014"] = <
+					text = <"Details of pump">
+					description = <"Narrative description of pump (if present) including model details.">
+				>
+				["at0015"] = <
+					text = <"Bolus">
+					description = <"Statement whether bolus is being used.">
+				>
+				["at0016"] = <
+					text = <"Details of bolus">
+					description = <"Details of bolus if used.">
+				>
+				["at0017"] = <
+					text = <"Nil by mouth">
+					description = <"Statement whether client is on nil by mouth.">
+				>
+				["at0018"] = <
+					text = <"Details of nil by mouth">
+					description = <"Narrative description of nil by mouth details if required.">
+				>
+			>
+		>
+	>

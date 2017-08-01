@@ -1,0 +1,140 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.medication_support_cordant.v0
+
+concept
+	[at0000]	-- Medication support Cordant
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of medication support requirements as part a client needs assessment.">
+			use = <"Use to record medication support requirements in the context of a client needs assessment.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["MD5-CAM-1.0.1"] = <"87E74D5FB5F8AD28F25F9E2FE816614F">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Medication support Cordant
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Taking medication
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Able to self medicate
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Level of support
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- Level 1 General support
+													at0006, 	-- Level 2 Administering medication
+													at0007]	-- Level 3 Administering medication by specialised technique
+												}
+											}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Medication risk assessment required
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Any home remedies or holistic therapies or topical creams
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medication support Cordant">
+					description = <"Medication support requirements for client needs assessment.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Level of support">
+					description = <"Statement about the level of support required.">
+				>
+				["at0005"] = <
+					text = <"Level 1 General support">
+					description = <"The client requires general support with medication.">
+				>
+				["at0006"] = <
+					text = <"Level 2 Administering medication">
+					description = <"The client requires medication administration.">
+				>
+				["at0007"] = <
+					text = <"Level 3 Administering medication by specialised technique">
+					description = <"The client requires medication administration by specialised technique.">
+				>
+				["at0008"] = <
+					text = <"Taking medication">
+					description = <"Statement whether the client is taking any medications.">
+				>
+				["at0009"] = <
+					text = <"Able to self medicate">
+					description = <"Statement whether the client is able to self medicate.">
+				>
+				["at0010"] = <
+					text = <"Medication risk assessment required">
+					description = <"Statement whether a medication risk assessment is required.">
+				>
+				["at0011"] = <
+					text = <"Any home remedies or holistic therapies or topical creams">
+					description = <"Statement whether the client uses any home remedies, holistic therapies or topical creams.">
+				>
+			>
+		>
+	>
